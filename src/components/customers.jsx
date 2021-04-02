@@ -40,12 +40,14 @@ class Customers extends Component {
     const { length: count } = this.state.users;
     const { pageSize, currentPage, sortColumn } = this.state;
 
-    if (count === 0) return <p>There are no customers to be shown!.</p>;
+    if (count === 0) return <h1>There are no customers to be shown!.</h1>;
 
     const { totalCount, data: users } = this.getPageData();
 
     return (
       <div>
+        <h1>Customers</h1>
+
         <p>There are {totalCount} customers available.</p>
 
         <CustomerTable

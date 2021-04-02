@@ -7,6 +7,7 @@ const NavBar = ({ user }) => {
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
         <Link className="navbar-brand" to="/">
+          <img src="../favicon.ico" alt="not-found" className="mr-2" />
           mFlix
         </Link>
         <div className="collapse navbar-collapse" id="navbarNavAltMarkup">

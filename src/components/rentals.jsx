@@ -45,12 +45,13 @@ class Rentals extends Component {
     const { length: count } = this.state.rentals;
     const { pageSize, currentPage, sortColumn } = this.state;
 
-    if (count === 0) return <p>There has been no rental of movies.</p>;
+    if (count === 0) return <h1>There has been no rental of movies.</h1>;
 
     const { totalCount, data: rentals } = this.getPageData();
 
     return (
       <div>
+        <h1>Rentals</h1>
         <p>There are {totalCount} rental of movies.</p>
 
         <RentalsTable
