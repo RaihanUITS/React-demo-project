@@ -39,6 +39,7 @@ class App extends Component {
               path="/movies/:id"
               render={(props) => {
                 if (!user) return <Redirect to="/login" />;
+                if (user && !user.isAdmin) return <Redirect to="/" />;
                 return <MovieForm {...props} />;
               }}
             />
