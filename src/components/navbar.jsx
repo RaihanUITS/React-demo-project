@@ -2,6 +2,7 @@ import React from "react";
 import { Link, NavLink } from "react-router-dom";
 
 const NavBar = ({ user }) => {
+  // console.log(user);
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
       <div className="container-fluid">
@@ -13,12 +14,16 @@ const NavBar = ({ user }) => {
             <NavLink className="nav-link" to="/movies">
               Movies
             </NavLink>
-            <NavLink className="nav-link" to="/customers">
-              Customers
-            </NavLink>
-            <NavLink className="nav-link" to="/rentals">
-              Rentals
-            </NavLink>
+            {user && user.isAdmin && (
+              <NavLink className="nav-link" to="/customers">
+                Customers
+              </NavLink>
+            )}
+            {user && user.isAdmin && (
+              <NavLink className="nav-link" to="/rentals">
+                Rentals
+              </NavLink>
+            )}
             {!user && (
               <React.Fragment>
                 <NavLink className="nav-link" to="/login">

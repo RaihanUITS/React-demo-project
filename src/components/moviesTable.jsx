@@ -16,13 +16,14 @@ class MoviesTable extends Component {
     { path: "genre.name", label: "Genre" },
     { path: "numberInStock", label: "Stock" },
     { path: "dailyRentalRate", label: "Rate" },
-    {
-      key: "like",
-      content: (movie) => (
-        <Like liked={movie.liked} clicked={() => this.props.onLike(movie)} />
-      ),
-    },
   ];
+
+  like = {
+    key: "like",
+    content: (movie) => (
+      <Like liked={movie.liked} clicked={() => this.props.onLike(movie)} />
+    ),
+  };
 
   deleteColumn = {
     key: "delete",
@@ -36,10 +37,21 @@ class MoviesTable extends Component {
     ),
   };
 
+  rentColumn = {
+    key: "rent",
+    content: (movie) => (
+      <Link to={`/rental/${movie._id}`} className="btn btn-primary">
+        Rent
+      </Link>
+    ),
+  };
+
   constructor() {
     super();
     const user = getCurrentUser();
     if (user && user.isAdmin) this.columns.push(this.deleteColumn);
+    if (user && !user.isAdmin) this.columns.push(this.like);
+    if (user && !user.isAdmin) this.columns.push(this.rentColumn);
   }
 
   render() {

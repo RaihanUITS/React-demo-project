@@ -8,6 +8,7 @@ import NotFound from "./components/not-found";
 import NavBar from "./components/navbar";
 import React, { Component } from "react";
 import MovieForm from "./components/movieform";
+import RentalForm from "./components/rentalform";
 import Login from "./components/loginform";
 import Logout from "./components/logout";
 import Register from "./components/registerform";
@@ -39,6 +40,13 @@ class App extends Component {
               render={(props) => {
                 if (!user) return <Redirect to="/login" />;
                 return <MovieForm {...props} />;
+              }}
+            />
+            <Route
+              path="/rental/:id"
+              render={(props) => {
+                if (!user) return <Redirect to="/login" />;
+                return <RentalForm customer={user} {...props} />;
               }}
             />
             <Route

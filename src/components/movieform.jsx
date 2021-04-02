@@ -23,7 +23,7 @@ class MovieForm extends Form {
     dailyRentalRate: Joi.number()
       .required()
       .min(0)
-      .max(10)
+      .max(255)
       .label("Daily Rental Rate"),
   };
 
