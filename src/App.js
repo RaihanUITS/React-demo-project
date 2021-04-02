@@ -46,7 +46,6 @@ class App extends Component {
             <Route
               path="/rental/:id"
               render={(props) => {
-                if (!user) return <Redirect to="/login" />;
                 return <RentalForm customer={user} {...props} />;
               }}
             />
